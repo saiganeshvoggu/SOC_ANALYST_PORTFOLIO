@@ -66,5 +66,24 @@ Child Process: splunk-optimize.exe
 
 This is normal Splunk activity, but the same method helps identify suspicious execution chains.
 
+## Evidence
+
+Screenshots should be uploaded under:
+
+```text
+evidence/sysmon/
+```
+
+Expected evidence:
+
+- sysmon-service-running-1.png
+- sysmon-service-running-2.png
+- sysmon-event-viewer-operational.png
+- sysmon-eventid1-processcreation-1.png
+- sysmon-eventid1-processcreation-2.png
+- sysmon-eventid1-processcreation-3.png
+- sysmon-config-verification.png
+- sysmon-schema-verification.png
+
 ## Interview Talking Point
 I installed and verified Sysmon on Windows, confirmed the Sysmon64 service was running automatically, analyzed Event ID 1 process creation events, reviewed command-line and parent process details, and integrated the telemetry into Splunk for threat hunting.
