@@ -59,5 +59,18 @@ Checks domain alignment using SPF and DKIM results and applies the sender domain
 10. Review sender infrastructure.
 11. Document final verdict.
 
+## Evidence
+
+Screenshots should be uploaded under:
+
+```text
+evidence/email-security/
+```
+
+Expected evidence:
+
+- gmail-show-original.png
+- mxtoolbox-analysis.png
+
 ## Interview Talking Point
 I review email headers by checking From, Reply-To, Return-Path, Received headers, Authentication-Results, SPF, DKIM, DMARC, source IP, relay path and delivery delay. Then I document whether the email appears legitimate or requires further investigation.
