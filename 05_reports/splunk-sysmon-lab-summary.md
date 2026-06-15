@@ -50,6 +50,23 @@ Sysmon was installed on a Windows endpoint and configured to generate detailed e
 | Command and Control | Application Layer Protocol | Review suspicious outbound connections and DNS activity |
 | Persistence | Registry Run Keys / Startup Folder | Future Sysmon registry monitoring use case |
 
+## Evidence
+
+Screenshots should be uploaded under:
+
+```text
+evidence/splunk/
+evidence/sysmon/
+```
+
+Key screenshots:
+
+- splunk-sysmon-search.png
+- splunk-process-frequency-analysis.png
+- splunk-commandline-analysis.png
+- sysmon-event-viewer-operational.png
+- sysmon-eventid1-processcreation-1.png
+
 ## Final Status
 Completed.
 
