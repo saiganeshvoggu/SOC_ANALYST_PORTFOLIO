@@ -67,10 +67,19 @@ The domain has 0/91 detections in VirusTotal, is 29 years old, uses Google-owned
 ## Recommended Action
 No action required.
 
-## Evidence Notes
-Screenshots should be stored under:
-- evidence/threat-intelligence/virustotal-google-domain.png
-- evidence/threat-intelligence/urlscan-google-domain.png
+## Evidence
+
+Screenshots should be uploaded under:
+
+```text
+evidence/threat-intelligence/
+```
+
+Expected evidence:
+
+- virustotal-google-domain.png
+- urlscan-google-domain.png
+- ioc-extraction-table.png
 
 ## Interview Takeaway
 This investigation demonstrates the ability to perform safe URL/domain reputation analysis, review website behavior, extract IOCs, and document a SOC-style verdict.
