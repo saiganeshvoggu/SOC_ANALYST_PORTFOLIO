@@ -39,9 +39,19 @@ This lab focuses on Windows Security Logs commonly monitored during security inv
 
 ## Evidence
 
-Screenshots are stored under:
+Screenshots should be uploaded under:
 
-evidence/windows_event_logs/
+```text
+evidence/windows-event-logs/
+```
+
+Expected evidence:
+
+- eventid-4624-successful-logon.png
+- eventid-4625-failed-logon.png
+- eventid-4634-logoff.png
+- eventid-4672-special-privileges.png
+- windows-auditpol-process-creation-disabled.png
 
 ## Conclusion
 
