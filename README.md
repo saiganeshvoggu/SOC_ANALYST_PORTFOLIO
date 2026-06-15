@@ -45,7 +45,9 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 
 ### SIEM & Log Analysis
 - Splunk Enterprise
+- Microsoft Sentinel fundamentals
 - SPL Query Writing
+- KQL Query Basics
 - Log Ingestion Validation
 - Threat Hunting
 
@@ -95,6 +97,9 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | `08_incident_response` | Incident response playbooks and escalation templates |
 | `09_threat_detection` | Threat detection notes mapped to MITRE ATT&CK |
 | `10_vulnerability_research` | CVE review and remediation tracking templates |
+| `11_mitre_attack` | MITRE ATT&CK tactics, techniques and mapping labs |
+| `12_windows_event_logs` | Windows Security Event Log investigations |
+| `13_microsoft_sentinel` | Microsoft Sentinel and KQL fundamentals |
 | `evidence` | Screenshots and lab evidence placeholders |
 | `archive` | Original README content migrated from older repositories |
 
@@ -104,11 +109,11 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 
 - Phase 1: Splunk + Sysmon ✅
 - Phase 2: Email Security ✅
-- Phase 2: Threat Intelligence 🔄
-- Phase 3: Windows Event Logs
-- Phase 4: Incident Response
-- Phase 5: MITRE ATT&CK
-- Phase 6: Microsoft Sentinel
+- Phase 2: Threat Intelligence ✅
+- Phase 3: Windows Event Logs ✅
+- Phase 4: MITRE ATT&CK ✅
+- Phase 5: Microsoft Sentinel 🔄
+- Phase 6: KQL 🔄
 - Phase 7: Detection Engineering
 - Phase 8: Interview Preparation
 
@@ -138,6 +143,21 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - IOC extraction
 - Domain reputation analysis
 - Google domain investigation case study
+
+### Phase 3 - Windows Event Logs
+- Event ID 4624 successful logon
+- Event ID 4625 failed logon
+- Event ID 4634 logoff
+- Event ID 4672 special privileges assigned
+- Process creation audit policy verification
+
+### Phase 4 - MITRE ATT&CK
+- ATT&CK matrix basics
+- Tactics and techniques overview
+- T1566 phishing
+- T1059 command and scripting interpreter
+- T1003 OS credential dumping
+- Mapping portfolio labs to MITRE ATT&CK
 
 ---
 
@@ -177,7 +197,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
-| SIEM & Labs | Splunk, Sysmon, URLScan.io, VirusTotal, MXToolbox |
+| SIEM & Labs | Splunk, Sysmon, Microsoft Sentinel, KQL, URLScan.io, VirusTotal, MXToolbox |
 
 ---
 
