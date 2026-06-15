@@ -35,5 +35,22 @@ Used to identify frequently executed processes and baseline endpoint activity.
 ### 10. Suspicious Download Command Review
 Used to identify command-line based file retrieval activity.
 
+## Evidence
+
+Screenshots should be uploaded under:
+
+```text
+evidence/splunk/
+```
+
+Expected evidence:
+
+- splunk-dashboard.png
+- splunk-data-inputs.png
+- splunk-sysmon-search.png
+- splunk-eventid1-search.png
+- splunk-process-frequency-analysis.png
+- splunk-commandline-analysis.png
+
 ## Resume Impact
 These queries demonstrate hands-on experience with SIEM searching, endpoint telemetry, suspicious process detection, and SOC investigation workflows.
