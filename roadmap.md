@@ -1,100 +1,133 @@
 # Cybersecurity Learning Roadmap
 
-## Phase 1 - SIEM & Endpoint Visibility ✅
+## Phase 1 - Splunk and Sysmon ✅
 
-### Splunk
-- Installation
-- Troubleshooting
-- Search & Reporting
-- SPL Commands
-
-### Sysmon
-- Installation
-- Configuration Verification
-- Event ID 1 Analysis
-- Parent Child Investigation
-- Splunk Integration
+Completed:
+- Splunk installation and troubleshooting
+- Search and Reporting
+- SPL commands
+- Sysmon installation
+- Sysmon configuration verification
+- Sysmon schema verification
+- Sysmon Event ID 1 process creation analysis
+- Parent-child process review
+- Splunk and Sysmon integration
+- Process frequency analysis
+- Command-line analysis
 
 Status: Completed
 
 ---
 
-## Phase 2 - Email Security & Threat Intelligence 🔄
+## Phase 2 - Email Security and Threat Intelligence ✅
 
-### Email Security
-- Email Fundamentals
+Completed:
+- Email fundamentals
+- Email header analysis
 - SPF
 - DKIM
 - DMARC
-- Header Analysis
-- Case Study
+- Gmail Show Original
+- MXToolbox review
+- VirusTotal
+- URLScan.io
+- IOC extraction
+- Domain reputation review
+- SOC report writing
 
 Status: Completed
 
-### Threat Intelligence
-- VirusTotal
-- URLScan.io
-- IOC Extraction
-- Incident Reporting
+---
 
-Status: In Progress
+## Phase 3 - Windows Event Logs ✅
+
+Completed:
+- Windows Security Logs
+- Event ID 4624 successful logon
+- Event ID 4625 failed logon
+- Event ID 4634 logoff
+- Event ID 4672 special privileges assigned
+- Audit policy verification for process creation
+
+Status: Foundation Completed
 
 ---
 
-## Phase 3 - Windows Event Logs
+## Phase 4 - MITRE ATT&CK ✅
 
-Planned:
-- Security Logs
-- Application Logs
-- System Logs
-- Failed Logons
-- User Creation Events
+Completed:
+- MITRE ATT&CK basics
+- Tactics and techniques
+- Attack lifecycle
+- T1566 phishing
+- T1059 command and scripting interpreter
+- T1003 OS credential dumping
+- Mapping existing labs to MITRE ATT&CK
 
----
-
-## Phase 4 - Incident Response
-
-Planned:
-- Identification
-- Containment
-- Eradication
-- Recovery
-- Lessons Learned
+Status: Foundation Completed
 
 ---
 
-## Phase 5 - MITRE ATT&CK
+## Phase 5 - Microsoft Sentinel 🔄
 
-Planned:
-- Tactics
-- Techniques
-- Mapping Sysmon Events
-- Threat Hunting Scenarios
-
----
-
-## Phase 6 - Microsoft Sentinel
-
-Planned:
-- Data Connectors
-- Analytics Rules
-- Hunting Queries
+Next:
+- Microsoft Sentinel overview
+- Log Analytics Workspace basics
+- Data connectors
+- Analytics rules
 - Incidents
+- Hunting queries
+- Workbooks
+- MITRE mapping in Sentinel
+
+Status: Next Learning Phase
+
+---
+
+## Phase 6 - KQL 🔄
+
+Planned:
+- KQL basics
+- where
+- project
+- summarize
+- sort
+- count
+- failed login queries
+- investigation queries
+- hunting query examples
+
+Status: Planned
 
 ---
 
 ## Phase 7 - Detection Engineering
 
 Planned:
-- Sigma Rules
-- Detection Logic
-- Alert Tuning
+- Sigma rule basics
+- Detection logic
+- Alert tuning
+- False positive handling
+- Rule documentation
 
 ---
 
-## Phase 8 - Interview Preparation
+## Phase 8 - SOC Case Studies
 
 Planned:
-- Mock Interviews
-- SOC Scenarios
-- Resume Optimization
+- Failed login investigation
+- Brute-force investigation
+- Phishing investigation
+- IOC investigation
+- Suspicious PowerShell investigation
+- SOC report writing
+
+---
+
+## Phase 9 - Interview Preparation
+
+Planned:
+- Mock interviews
+- SOC scenarios
+- Resume optimization
+- Portfolio walkthrough
