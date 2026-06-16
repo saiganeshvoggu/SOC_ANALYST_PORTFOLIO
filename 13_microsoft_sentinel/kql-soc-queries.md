@@ -6,15 +6,16 @@ Kusto Query Language (KQL) is the primary query language used in Microsoft Senti
 
 SOC Analysts use KQL to:
 
-* Search logs
-* Investigate incidents
-* Detect suspicious activity
-* Perform threat hunting
-* Build Analytics Rules
+- Search logs
+- Validate data ingestion
+- Investigate incidents
+- Detect suspicious activity
+- Perform threat hunting
+- Build analytics rules
 
 ---
 
-# Basic Query Structure
+## Basic Query Structure
 
 ```kql
 TableName
@@ -26,78 +27,150 @@ TableName
 
 ---
 
-# Query 1 - Failed Login Attempts
+## Query 1 - Verify Agent Connectivity
 
-## Purpose
+### Purpose
+
+Confirm that the Azure Arc machine and Azure Monitor Agent are sending data to Log Analytics.
+
+```kql
+Heartbeat
+| take 10
+```
+
+### SOC Use Case
+
+- Agent health verification
+- Data ingestion troubleshooting
+- Connector validation
+
+---
+
+## Query 2 - Verify Windows Security Events
+
+### Purpose
+
+Confirm that Windows Security Events are being collected.
+
+```kql
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| take 20
+```
+
+### SOC Use Case
+
+- Security event ingestion validation
+- Windows endpoint monitoring
+- Sentinel connector verification
+
+---
+
+## Query 3 - Event Frequency by Event ID
+
+### Purpose
+
+Identify the most common Windows Security Event IDs.
+
+```kql
+SecurityEvent
+| summarize Count=count() by EventID
+| sort by Count desc
+```
+
+### SOC Use Case
+
+- Baseline normal event activity
+- Identify noisy events
+- Prioritize investigation targets
+
+---
+
+## Query 4 - Failed Login Attempts
+
+### Purpose
 
 Identify failed authentication attempts.
 
 ```kql
 SecurityEvent
 | where EventID == 4625
+| sort by TimeGenerated desc
 ```
 
-## SOC Use Case
+### SOC Use Case
 
-* Brute Force Detection
-* Password Spraying Detection
-* Account Compromise Investigation
+- Failed login investigation
+- Brute-force detection
+- Password spraying detection
+- Account compromise triage
 
 ---
 
-# Query 2 - Successful Logins
+## Query 5 - Successful Logins
 
-## Purpose
+### Purpose
 
 Review successful authentication activity.
 
 ```kql
 SecurityEvent
 | where EventID == 4624
+| sort by TimeGenerated desc
 ```
 
-## SOC Use Case
+### SOC Use Case
 
-* User Activity Review
-* Login Validation
-* Account Investigation
+- Login validation
+- User activity review
+- Authentication investigation
 
 ---
 
-# Query 3 - Logoff Events
+## Query 6 - Privileged Logins
 
-## Purpose
+### Purpose
 
-Review user logoff activity.
-
-```kql
-SecurityEvent
-| where EventID == 4634
-```
-
----
-
-# Query 4 - Privileged Logins
-
-## Purpose
-
-Identify administrative access.
+Identify logons where special privileges were assigned.
 
 ```kql
 SecurityEvent
 | where EventID == 4672
+| sort by TimeGenerated desc
 ```
 
-## SOC Use Case
+### SOC Use Case
 
-* Privilege Escalation Monitoring
-* Administrative Activity Review
+- Administrative logon monitoring
+- Privileged account review
+- Suspicious access investigation
 
 ---
 
-# Query 5 - Failed Login Count by User
+## Query 7 - Recent Security Activity
 
-## Purpose
+### Purpose
+
+Review recent security events with only important columns.
+
+```kql
+SecurityEvent
+| where TimeGenerated > ago(24h)
+| project TimeGenerated, EventID, Computer
+| take 50
+```
+
+### SOC Use Case
+
+- Quick triage
+- Event timeline review
+- Endpoint activity validation
+
+---
+
+## Query 8 - Failed Login Count by User
+
+### Purpose
 
 Identify users receiving multiple failed logins.
 
@@ -110,9 +183,9 @@ SecurityEvent
 
 ---
 
-# Query 6 - Failed Login Count by Host
+## Query 9 - Failed Login Count by Host
 
-## Purpose
+### Purpose
 
 Identify systems receiving login failures.
 
@@ -125,50 +198,9 @@ SecurityEvent
 
 ---
 
-# Query 7 - Events in Last 24 Hours
+## Query 10 - Top Hosts by Activity
 
-## Purpose
-
-Review recent activity.
-
-```kql
-SecurityEvent
-| where TimeGenerated > ago(24h)
-```
-
----
-
-# Query 8 - Event Frequency
-
-## Purpose
-
-Identify most common security events.
-
-```kql
-SecurityEvent
-| summarize EventCount=count() by EventID
-| sort by EventCount desc
-```
-
----
-
-# Query 9 - Top Users by Activity
-
-## Purpose
-
-Identify active users.
-
-```kql
-SecurityEvent
-| summarize ActivityCount=count() by Account
-| sort by ActivityCount desc
-```
-
----
-
-# Query 10 - Top Hosts by Activity
-
-## Purpose
+### Purpose
 
 Identify active systems.
 
@@ -180,212 +212,124 @@ SecurityEvent
 
 ---
 
-# Query 11 - PowerShell Activity
+## Query 11 - Top Accounts by Activity
 
-## Purpose
+### Purpose
 
-Identify PowerShell execution.
-
-```kql
-SecurityEvent
-| where Process has "powershell"
-```
-
-## MITRE Mapping
-
-T1059.001
-
-PowerShell
-
----
-
-# Query 12 - CMD Activity
-
-## Purpose
-
-Identify command prompt execution.
+Identify accounts generating the highest number of events.
 
 ```kql
 SecurityEvent
-| where Process has "cmd.exe"
+| summarize ActivityCount=count() by Account
+| sort by ActivityCount desc
 ```
 
 ---
 
-# Query 13 - Recent Alerts
+## Query 12 - Logoff Events
 
-## Purpose
+### Purpose
 
-Review generated alerts.
-
-```kql
-SecurityAlert
-| sort by TimeGenerated desc
-```
-
----
-
-# Query 14 - Recent Incidents
-
-## Purpose
-
-Review incident activity.
-
-```kql
-SecurityIncident
-| sort by TimeGenerated desc
-```
-
----
-
-# Query 15 - User Sign-in Activity
-
-## Purpose
-
-Review Azure/Entra sign-ins.
-
-```kql
-SigninLogs
-| sort by TimeGenerated desc
-```
-
----
-
-# Query 16 - Failed Sign-ins
-
-## Purpose
-
-Review failed Entra ID logins.
-
-```kql
-SigninLogs
-| where ResultType != 0
-```
-
----
-
-# Query 17 - Successful Sign-ins
-
-## Purpose
-
-Review successful Entra ID logins.
-
-```kql
-SigninLogs
-| where ResultType == 0
-```
-
----
-
-# Query 18 - Security Incident Count
-
-## Purpose
-
-Count incidents by severity.
-
-```kql
-SecurityIncident
-| summarize count() by Severity
-```
-
----
-
-# Query 19 - Alert Count by Severity
-
-## Purpose
-
-Review alert distribution.
-
-```kql
-SecurityAlert
-| summarize count() by AlertSeverity
-```
-
----
-
-# Query 20 - Threat Hunting Starter Query
-
-## Purpose
-
-Review all recent security activity.
+Review logoff activity.
 
 ```kql
 SecurityEvent
-| where TimeGenerated > ago(7d)
+| where EventID == 4634
 | sort by TimeGenerated desc
 ```
 
 ---
 
-# Interview Questions
+## Query 13 - Security Log Cleared
 
-## What is KQL?
+### Purpose
 
-KQL stands for Kusto Query Language and is used to search, analyze, and investigate logs within Microsoft Sentinel.
+Identify attempts to clear the Windows Security log.
 
----
+```kql
+SecurityEvent
+| where EventID == 1102
+| sort by TimeGenerated desc
+```
 
-## Why is KQL important?
+### SOC Use Case
 
-KQL enables SOC Analysts to:
-
-* Investigate incidents
-* Hunt threats
-* Build detections
-* Analyze logs
-
----
-
-## What are the most commonly used operators?
-
-* where
-* project
-* summarize
-* count
-* sort
-* extend
-* join
+- Defense evasion monitoring
+- Suspicious log tampering investigation
+- Incident response escalation
 
 ---
 
-# SOC Analyst Practical Workflow
+## Query 14 - User Created
 
-Incident Created
+### Purpose
 
-↓
+Identify newly created local or domain users where available.
 
-Review Incident
-
-↓
-
-Run KQL Query
-
-↓
-
-Validate Activity
-
-↓
-
-Determine Root Cause
-
-↓
-
-Document Findings
-
-↓
-
-Respond
+```kql
+SecurityEvent
+| where EventID == 4720
+| sort by TimeGenerated desc
+```
 
 ---
 
-# Evidence Screenshots
+## Query 15 - User Added to Security Group
 
-Add screenshots later:
+### Purpose
 
-* Failed Login Query
-* Successful Login Query
-* PowerShell Query
-* Alert Query
-* Incident Query
-* Threat Hunting Query
-* KQL Results
+Identify group membership changes.
+
+```kql
+SecurityEvent
+| where EventID in (4728, 4732)
+| sort by TimeGenerated desc
+```
+
+---
+
+## Lab Results Observed
+
+During the Microsoft Sentinel setup lab, the following tables and event types were successfully observed:
+
+- `Heartbeat` table returned the onboarded Windows machine.
+- `SecurityEvent` table returned Windows Security Events.
+- Event ID frequency query returned multiple Windows event IDs.
+- Event ID `4624` returned successful logon activity.
+- Event ID `4672` appeared in the event frequency output.
+
+---
+
+## Interview Notes
+
+### What is KQL?
+
+KQL stands for Kusto Query Language. It is used in Microsoft Sentinel and Log Analytics to search, filter, summarize and investigate log data.
+
+### Why is KQL important for SOC Analysts?
+
+KQL allows SOC analysts to investigate incidents, validate alerts, perform threat hunting, build detections and analyze security telemetry.
+
+### Common KQL Operators
+
+- `where`
+- `project`
+- `summarize`
+- `count()`
+- `sort by`
+- `extend`
+- `join`
+- `ago()`
+- `in`
+
+---
+
+## Evidence Screenshots To Add
+
+Recommended screenshot names:
+
+- `heartbeat-query-results.png`
+- `securityevent-query-results.png`
+- `eventid-frequency-summary.png`
+- `successful-logon-4624-results.png`
+- `recent-security-events-results.png`
