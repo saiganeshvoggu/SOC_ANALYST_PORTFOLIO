@@ -1,66 +1,94 @@
 # Evidence Folder
 
-This folder is reserved for screenshots and proof of hands-on SOC Analyst labs.
+## Purpose
+
+This folder stores screenshots and proof of hands-on SOC Analyst labs.
 
 ## Evidence Structure
 
-- splunk
-- sysmon
-- email-security
-- threat-intelligence
-- reports
-- windows-event-logs
-- mitre-attack
+```text
+evidence/
+  splunk/
+  sysmon/
+  email-security/
+  threat-intelligence/
+  reports/
+  windows-event-logs/
+  mitre-attack/
+  microsoft-sentinel/
+```
 
-## Screenshot Reference Plan
+## Screenshot Naming Standard
 
-### Splunk
-- splunk-dashboard.png
-- splunk-data-inputs.png
-- splunk-sysmon-search.png
-- splunk-eventid1-search.png
-- splunk-process-frequency-analysis.png
-- splunk-commandline-analysis.png
+Use clear names that explain the lab step or result.
 
-### Sysmon
-- sysmon-service-running-1.png
-- sysmon-service-running-2.png
-- sysmon-event-viewer-operational.png
-- sysmon-eventid1-processcreation-1.png
-- sysmon-eventid1-processcreation-2.png
-- sysmon-eventid1-processcreation-3.png
-- sysmon-config-verification.png
-- sysmon-schema-verification.png
+---
 
-### Email Security
-- gmail-show-original.png
-- mxtoolbox-analysis.png
+## Microsoft Sentinel Evidence
 
-### Threat Intelligence
-- virustotal-google-domain.png
-- urlscan-google-domain.png
-- ioc-extraction-table.png
+Recommended names:
 
-### Reports
-- incident-report-example.png
+- `sentinel-workspace-created.png`
+- `log-analytics-workspace-overview.png`
+- `windows-security-events-solution-installed.png`
+- `azure-arc-onboarding-script.png`
+- `azure-arc-agent-installation-started.png`
+- `azure-arc-machine-connected-powershell.png`
+- `azure-arc-machine-connected-portal.png`
+- `data-collection-rule-review.png`
+- `windows-security-events-connected.png`
+- `heartbeat-query-results.png`
+- `securityevent-query-results.png`
+- `eventid-frequency-summary.png`
+- `successful-logon-4624-results.png`
+- `recent-security-events-results.png`
 
-### Windows Event Logs
-- eventid-4624-successful-logon.png
-- eventid-4625-failed-logon.png
-- eventid-4634-logoff.png
-- eventid-4672-special-privileges.png
-- windows-auditpol-process-creation-disabled.png
+---
 
-### MITRE ATT&CK
-- mitre-matrix-overview.png
-- t1566-phishing.png
-- t1059-powershell.png
-- t1003-credential-dumping.png
-- tactic-initial-access.png
-- tactic-execution.png
-- tactic-credential-access.png
-- tactic-privilege-escalation.png
-- mitre-mapping-table.png
+## Splunk Evidence
 
-## Note
-Screenshots should be sanitized before upload.
+- `splunk-dashboard.png`
+- `splunk-data-inputs.png`
+- `splunk-sysmon-search.png`
+- `splunk-eventid1-search.png`
+- `splunk-process-frequency-analysis.png`
+- `splunk-commandline-analysis.png`
+
+## Sysmon Evidence
+
+- `sysmon-service-running.png`
+- `sysmon-event-viewer-operational.png`
+- `sysmon-eventid1-processcreation.png`
+- `sysmon-config-verification.png`
+
+## Email Security Evidence
+
+- `gmail-show-original.png`
+- `mxtoolbox-analysis.png`
+
+## Threat Intelligence Evidence
+
+- `virustotal-domain-analysis.png`
+- `urlscan-domain-analysis.png`
+- `ioc-extraction-table.png`
+
+## Windows Event Logs Evidence
+
+- `eventid-4624-successful-logon.png`
+- `eventid-4625-failed-logon.png`
+- `eventid-4634-logoff.png`
+- `eventid-4672-special-privileges.png`
+
+## MITRE ATT&CK Evidence
+
+- `mitre-matrix-overview.png`
+- `mitre-mapping-table.png`
+
+---
+
+## Evidence Rules
+
+- Do not upload confidential company screenshots.
+- Do not include customer, employee or internal company data.
+- Use personal lab screenshots or sanitized evidence only.
+- Keep filenames readable and professional.
