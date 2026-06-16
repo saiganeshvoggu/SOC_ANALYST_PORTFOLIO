@@ -1,8 +1,8 @@
 # SOC Analyst Portfolio — Sai Ganesh Voggu
 
-**SOC Analyst | CompTIA Security+ CE | Threat Detection & Incident Response | MSc Data Science — University of Essex**
+**SOC Analyst | CompTIA Security+ CE | Microsoft Sentinel | Splunk | Sysmon | KQL | Threat Detection & Incident Response | MSc Data Science — University of Essex**
 
-This repository documents my SOC analyst experience, security operations workflows, hands-on labs, investigation templates, and cybersecurity learning projects. The content is built from sanitized, non-confidential examples based on professional experience and personal lab work.
+This repository documents my SOC analyst experience, hands-on security operations labs, SIEM workflows, detection engineering notes, incident response templates, threat hunting exercises, and cybersecurity portfolio projects. The content is built from sanitized, non-confidential examples based on professional experience and personal lab work.
 
 ---
 
@@ -11,11 +11,42 @@ This repository documents my SOC analyst experience, security operations workflo
 Cybersecurity professional with hands-on SOC experience triaging **25–55 security alerts daily** across a **2,000+ user enterprise environment** spanning India and the United States. Experienced in endpoint security, DLP operations, Microsoft 365 security, incident response, alert documentation, and security operations support.
 
 - **Role Focus:** SOC Analyst / Cybersecurity Operations Analyst
-- **Core Areas:** Alert Triage, Incident Response, DLP, Endpoint Security, Threat Detection, Security Documentation
+- **Core Areas:** Alert Triage, Incident Response, DLP, Endpoint Security, Threat Detection, SIEM Monitoring, Security Documentation
+- **SIEM & Logging:** Microsoft Sentinel, Splunk Enterprise, Log Analytics Workspace, Windows Event Logs, Sysmon
+- **Cloud Security Lab:** Azure Arc, Azure Monitor Agent, Data Collection Rules, Windows Security Events via AMA
 - **Tools:** Zoho Service Desk, SentinelOne, Arctic Wolf, Microsoft Purview, Microsoft 365 Security, Exchange Admin Center, Absolute, BitLocker
 - **Certifications:** CompTIA Security+ CE, AWS Solutions Architect – Associate, Microsoft SOC Program Foundations
 - **Education:** MSc Data Science — University of Essex, United Kingdom
-- **Currently Building:** Splunk, Sysmon, Microsoft Sentinel, Threat Hunting Labs
+- **Currently Building:** KQL threat hunting, Microsoft Sentinel analytics rules, detection engineering and incident investigation labs
+
+---
+
+## Portfolio Highlights
+
+### Microsoft Sentinel SIEM Lab
+- Deployed Microsoft Sentinel on an Azure Log Analytics Workspace.
+- Onboarded a Windows 11 endpoint using Azure Arc.
+- Installed Azure Monitor Agent through Sentinel workflow.
+- Created a Data Collection Rule for Windows Security Events.
+- Connected Windows Security Events via AMA.
+- Verified log ingestion using Heartbeat and SecurityEvent KQL queries.
+- Performed basic KQL hunting for Event IDs, successful logons, privileged logons and event frequency.
+
+### Splunk + Sysmon Lab
+- Installed and configured Splunk Enterprise for local security log analysis.
+- Installed Sysmon and validated Sysmon Operational logs.
+- Ingested Sysmon telemetry into Splunk.
+- Investigated process creation activity using Event ID 1.
+- Practiced SPL searches, filtering, sorting, field selection and frequency analysis.
+
+### Windows Event Log Analysis
+- Investigated key Windows Security Event IDs including 4624, 4625, 4634 and 4672.
+- Reviewed process creation audit policy and Windows Security logging behavior.
+- Documented analyst notes for logon, failed logon, logoff and special privilege events.
+
+### MITRE ATT&CK Mapping
+- Mapped portfolio activity to common MITRE ATT&CK tactics and techniques.
+- Covered T1566 Phishing, T1059 Command and Scripting Interpreter, T1003 Credential Dumping and related investigation concepts.
 
 ---
 
@@ -44,18 +75,24 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 ## Current Skills
 
 ### SIEM & Log Analysis
+- Microsoft Sentinel
+- Azure Log Analytics Workspace
+- Azure Arc-enabled servers
+- Azure Monitor Agent
+- Data Collection Rules
 - Splunk Enterprise
-- Microsoft Sentinel fundamentals
 - SPL Query Writing
-- KQL Query Basics
+- KQL Query Writing
 - Log Ingestion Validation
 - Threat Hunting
 
 ### Endpoint Telemetry
 - Microsoft Sysmon
+- Windows Security Events
 - Event ID Analysis
 - Parent-Child Process Investigation
 - Command-Line Analysis
+- Endpoint Investigation
 
 ### Email Security
 - Email Header Analysis
@@ -64,12 +101,14 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - DMARC
 - MXToolbox
 - Gmail Show Original
+- Phishing Investigation
 
 ### Threat Intelligence
 - VirusTotal
 - URLScan.io
 - IOC Extraction
 - Domain Reputation Analysis
+- MITRE ATT&CK Mapping
 - Incident Reporting
 
 ### Professional SOC Operations
@@ -99,8 +138,9 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | `10_vulnerability_research` | CVE review and remediation tracking templates |
 | `11_mitre_attack` | MITRE ATT&CK tactics, techniques and mapping labs |
 | `12_windows_event_logs` | Windows Security Event Log investigations |
-| `13_microsoft_sentinel` | Microsoft Sentinel and KQL fundamentals |
-| `evidence` | Screenshots and lab evidence placeholders |
+| `13_microsoft_sentinel` | Microsoft Sentinel, Azure Arc, AMA, DCR and KQL labs |
+| `14_detection_engineering` | Detection logic and analytics rule documentation |
+| `evidence` | Screenshots and lab evidence |
 | `archive` | Original README content migrated from older repositories |
 
 ---
@@ -112,10 +152,10 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Phase 2: Threat Intelligence ✅
 - Phase 3: Windows Event Logs ✅
 - Phase 4: MITRE ATT&CK ✅
-- Phase 5: Microsoft Sentinel 🔄
-- Phase 6: KQL 🔄
-- Phase 7: Detection Engineering
-- Phase 8: Interview Preparation
+- Phase 5: Microsoft Sentinel Setup ✅
+- Phase 6: KQL Fundamentals ✅
+- Phase 7: Detection Engineering 🔄
+- Phase 8: Incident Investigation & Interview Preparation 🔄
 
 ---
 
@@ -159,6 +199,19 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - T1003 OS credential dumping
 - Mapping portfolio labs to MITRE ATT&CK
 
+### Phase 5 - Microsoft Sentinel SIEM Lab
+- Azure subscription and resource group setup
+- Log Analytics Workspace deployment
+- Microsoft Sentinel enablement
+- Windows Security Events solution installation
+- Azure Arc onboarding for Windows endpoint
+- Azure Monitor Agent installation
+- Data Collection Rule creation
+- Windows Security Events via AMA connection
+- Heartbeat table verification
+- SecurityEvent table verification
+- KQL query execution for event hunting
+
 ---
 
 ## Featured Security Workflows
@@ -169,6 +222,14 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Check previous related activity
 - Document findings and action taken
 - Escalate when required
+
+### Microsoft Sentinel Investigation Workflow
+- Validate data connector health
+- Confirm ingestion through Heartbeat and SecurityEvent tables
+- Identify event IDs and event frequency
+- Filter suspicious authentication events
+- Map events to MITRE ATT&CK tactics where applicable
+- Convert repeated patterns into analytics rules
 
 ### Incident Response
 - Failed login investigation
@@ -190,14 +251,17 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 
 | Category | Tools & Platforms |
 |---|---|
+| SIEM | Microsoft Sentinel, Splunk Enterprise, Log Analytics Workspace |
+| Cloud Monitoring | Azure Arc, Azure Monitor Agent, Data Collection Rules |
+| Query Languages | KQL, SPL |
 | Alert Management | Zoho Service Desk, SentinelOne, Arctic Wolf |
-| Endpoint Security | SentinelOne, Absolute, BitLocker |
+| Endpoint Security | SentinelOne, Absolute, BitLocker, Sysmon, Windows Security Events |
 | Microsoft Security | Microsoft 365 Security, Microsoft Purview, Exchange Admin Center |
-| Identity & Access | MFA, access reviews, failed login investigations |
-| Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts |
+| Identity & Access | MFA, access reviews, failed login investigations, successful logon analysis |
+| Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
-| SIEM & Labs | Splunk, Sysmon, Microsoft Sentinel, KQL, URLScan.io, VirusTotal, MXToolbox |
+| Threat Intelligence | URLScan.io, VirusTotal, MXToolbox |
 
 ---
 
