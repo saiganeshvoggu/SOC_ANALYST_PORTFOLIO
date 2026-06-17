@@ -17,11 +17,19 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - **Tools:** Zoho Service Desk, SentinelOne, Arctic Wolf, Microsoft Purview, Microsoft 365 Security, Exchange Admin Center, Absolute, BitLocker
 - **Certifications:** CompTIA Security+ CE, AWS Solutions Architect – Associate, Microsoft SOC Program Foundations
 - **Education:** MSc Data Science — University of Essex, United Kingdom
-- **Currently Building:** Threat hunting labs, Microsoft Sentinel analytics rules, incident investigation workflows, and SOC interview-ready portfolio projects
+- **Currently Building:** Incident investigation workflows, SOC case management templates, interview preparation notes, and recruiter-ready SOC portfolio documentation
 
 ---
 
 ## Portfolio Highlights
+
+### Threat Hunting Phase
+- Completed proactive threat hunting labs using Microsoft Sentinel, Azure Log Analytics, Windows Security Events and KQL.
+- Hunted authentication activity using Event IDs 4624, 4625 and 4672.
+- Hunted PowerShell execution using Event ID 4688 and reviewed parent process context.
+- Hunted persistence activity using Event IDs 4697 and 4698.
+- Hunted defense evasion activity using Event ID 1102 for Security log clearing.
+- Produced a threat hunting report covering findings, risk assessment, recommendations and MITRE ATT&CK mapping.
 
 ### Detection Engineering Phase
 - Built and validated detection logic using Microsoft Sentinel, Azure Log Analytics, Windows Security Events, Event Viewer and KQL.
@@ -93,6 +101,16 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Log Ingestion Validation
 - Threat Hunting
 
+### Threat Hunting
+- Authentication hunting
+- Failed and successful logon analysis
+- Privileged logon hunting
+- PowerShell execution hunting
+- Persistence hunting
+- Defense evasion hunting
+- MITRE ATT&CK-based hunt documentation
+- Threat hunting report writing
+
 ### Detection Engineering
 - Windows Security Event ID detection
 - Microsoft Sentinel KQL detection logic
@@ -163,6 +181,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | `12_windows_event_logs` | Windows Security Event Log investigations |
 | `13_microsoft_sentinel` | Microsoft Sentinel, Azure Arc, AMA, DCR and KQL labs |
 | `14_detection_engineering` | Detection engineering labs, KQL rules and analyst notes |
+| `15_threat_hunting` | Threat hunting labs, hunt queries and report documentation |
 | `evidence` | Screenshots and lab evidence |
 | `archive` | Original README content migrated from older repositories |
 
@@ -178,8 +197,10 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Phase 5: Microsoft Sentinel Setup ✅
 - Phase 6: KQL Fundamentals ✅
 - Phase 7: Detection Engineering ✅
-- Phase 8: Threat Hunting 🔄
-- Phase 9: Incident Investigation & Interview Preparation 🔄
+- Phase 8: Threat Hunting ✅
+- Phase 9: Incident Investigation 🔄
+- Phase 10: SOC Case Management 🔄
+- Phase 11: Interview Preparation 🔄
 
 ---
 
@@ -252,6 +273,14 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Service Control Manager service installation review using Event ID 7045
 - MITRE ATT&CK mapping and false positive notes
 
+### Phase 8 - Threat Hunting
+- Authentication hunting using Event IDs 4624, 4625 and 4672
+- PowerShell hunting using Event ID 4688
+- Persistence hunting using Event IDs 4697 and 4698
+- Privilege escalation hunting using Event ID 4672
+- Defense evasion hunting using Event ID 1102
+- Threat hunting report with findings, risk assessment, recommendations and MITRE ATT&CK mapping
+
 ---
 
 ## Featured Security Workflows
@@ -280,6 +309,15 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Review false positives
 - Map to MITRE ATT&CK
 - Document analyst notes
+
+### Threat Hunting Workflow
+- Define hunt hypothesis
+- Select relevant data source
+- Write KQL hunt query
+- Review accounts, hosts, timestamps and event patterns
+- Identify suspicious behavior or confirm benign activity
+- Map findings to MITRE ATT&CK
+- Document hunt results and recommendations
 
 ### Incident Response
 - Failed login investigation
@@ -310,6 +348,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | Identity & Access | MFA, access reviews, failed login investigations, successful logon analysis |
 | Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic, Microsoft Sentinel detections |
 | Detection Engineering | KQL detections, authentication correlation, PowerShell detection, persistence detection, log tampering detection |
+| Threat Hunting | Authentication hunting, PowerShell hunting, persistence hunting, defense evasion hunting, hunt reporting |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
 | Threat Intelligence | URLScan.io, VirusTotal, MXToolbox |
