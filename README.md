@@ -17,7 +17,7 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - **Tools:** Zoho Service Desk, SentinelOne, Arctic Wolf, Microsoft Purview, Microsoft 365 Security, Exchange Admin Center, Absolute, BitLocker
 - **Certifications:** CompTIA Security+ CE, AWS Solutions Architect – Associate, Microsoft SOC Program Foundations
 - **Education:** MSc Data Science — University of Essex, United Kingdom
-- **Currently Building:** KQL threat hunting, Microsoft Sentinel analytics rules, detection engineering and incident investigation labs
+- **Currently Building:** Microsoft Sentinel detection engineering labs, KQL correlation detections, analytics rules, threat hunting, and SOC investigation workflows
 
 ---
 
@@ -31,6 +31,13 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - Connected Windows Security Events via AMA.
 - Verified log ingestion using Heartbeat and SecurityEvent KQL queries.
 - Performed basic KQL hunting for Event IDs, successful logons, privileged logons and event frequency.
+
+### Detection Engineering Lab
+- Built and validated a failed-login brute-force detection in Microsoft Sentinel.
+- Used Windows Security Event ID 4625 to identify repeated failed authentication activity.
+- Created KQL detection logic using `summarize`, `count()`, and `bin(TimeGenerated, 5m)`.
+- Validated threshold-based detection for five or more failed login attempts within five minutes.
+- Mapped the detection to MITRE ATT&CK T1110 Brute Force.
 
 ### Splunk + Sysmon Lab
 - Installed and configured Splunk Enterprise for local security log analysis.
@@ -85,6 +92,14 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - KQL Query Writing
 - Log Ingestion Validation
 - Threat Hunting
+
+### Detection Engineering
+- Windows Security Event ID detection
+- Microsoft Sentinel KQL detection logic
+- Threshold-based alert logic
+- Failed login detection
+- MITRE ATT&CK mapping
+- False positive analysis
 
 ### Endpoint Telemetry
 - Microsoft Sysmon
@@ -212,6 +227,13 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - SecurityEvent table verification
 - KQL query execution for event hunting
 
+### Phase 7 - Detection Engineering
+- Failed login detection using Windows Security Event ID 4625
+- KQL threshold logic for repeated failed login attempts
+- Five or more failed logins within a five-minute time window
+- MITRE ATT&CK T1110 Brute Force mapping
+- False positive review and SOC analyst investigation notes
+
 ---
 
 ## Featured Security Workflows
@@ -258,7 +280,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | Endpoint Security | SentinelOne, Absolute, BitLocker, Sysmon, Windows Security Events |
 | Microsoft Security | Microsoft 365 Security, Microsoft Purview, Exchange Admin Center |
 | Identity & Access | MFA, access reviews, failed login investigations, successful logon analysis |
-| Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic |
+| Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic, Microsoft Sentinel detections |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
 | Threat Intelligence | URLScan.io, VirusTotal, MXToolbox |
