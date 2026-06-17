@@ -17,11 +17,18 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - **Tools:** Zoho Service Desk, SentinelOne, Arctic Wolf, Microsoft Purview, Microsoft 365 Security, Exchange Admin Center, Absolute, BitLocker
 - **Certifications:** CompTIA Security+ CE, AWS Solutions Architect – Associate, Microsoft SOC Program Foundations
 - **Education:** MSc Data Science — University of Essex, United Kingdom
-- **Currently Building:** Microsoft Sentinel detection engineering labs, KQL correlation detections, analytics rules, threat hunting, and SOC investigation workflows
+- **Currently Building:** Threat hunting labs, Microsoft Sentinel analytics rules, incident investigation workflows, and SOC interview-ready portfolio projects
 
 ---
 
 ## Portfolio Highlights
+
+### Detection Engineering Phase
+- Built and validated detection logic using Microsoft Sentinel, Azure Log Analytics, Windows Security Events, Event Viewer and KQL.
+- Created detections for failed logons, successful logons, brute-force patterns, privileged logons, user creation, group membership changes, process creation, PowerShell execution, service installation, scheduled task creation and security log clearing.
+- Enabled and validated Windows audit policies for process creation, service installation, scheduled task creation and related security events.
+- Practiced KQL logic using `where`, `project`, `sort by`, `summarize`, `count()`, `countif()`, `maxif()` and time-window based detection logic.
+- Mapped detections to MITRE ATT&CK techniques including T1110, T1059.001, T1136, T1098, T1543.003, T1053.005 and T1070.001.
 
 ### Microsoft Sentinel SIEM Lab
 - Deployed Microsoft Sentinel on an Azure Log Analytics Workspace.
@@ -32,13 +39,6 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - Verified log ingestion using Heartbeat and SecurityEvent KQL queries.
 - Performed basic KQL hunting for Event IDs, successful logons, privileged logons and event frequency.
 
-### Detection Engineering Lab
-- Built and validated a failed-login brute-force detection in Microsoft Sentinel.
-- Used Windows Security Event ID 4625 to identify repeated failed authentication activity.
-- Created KQL detection logic using `summarize`, `count()`, and `bin(TimeGenerated, 5m)`.
-- Validated threshold-based detection for five or more failed login attempts within five minutes.
-- Mapped the detection to MITRE ATT&CK T1110 Brute Force.
-
 ### Splunk + Sysmon Lab
 - Installed and configured Splunk Enterprise for local security log analysis.
 - Installed Sysmon and validated Sysmon Operational logs.
@@ -47,13 +47,13 @@ Cybersecurity professional with hands-on SOC experience triaging **25–55 secur
 - Practiced SPL searches, filtering, sorting, field selection and frequency analysis.
 
 ### Windows Event Log Analysis
-- Investigated key Windows Security Event IDs including 4624, 4625, 4634 and 4672.
+- Investigated key Windows Security Event IDs including 4624, 4625, 4672, 4688, 4697, 4698, 4720, 4732 and 1102.
 - Reviewed process creation audit policy and Windows Security logging behavior.
-- Documented analyst notes for logon, failed logon, logoff and special privilege events.
+- Documented analyst notes for logon, failed logon, privilege activity, account creation and persistence events.
 
 ### MITRE ATT&CK Mapping
 - Mapped portfolio activity to common MITRE ATT&CK tactics and techniques.
-- Covered T1566 Phishing, T1059 Command and Scripting Interpreter, T1003 Credential Dumping and related investigation concepts.
+- Covered brute force, valid accounts, PowerShell execution, account creation, account manipulation, Windows service persistence, scheduled task persistence and event log clearing.
 
 ---
 
@@ -97,7 +97,15 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Windows Security Event ID detection
 - Microsoft Sentinel KQL detection logic
 - Threshold-based alert logic
-- Failed login detection
+- Correlation-based detection
+- Brute-force detection
+- Privileged logon detection
+- Account creation detection
+- Group membership change detection
+- Process creation monitoring
+- PowerShell execution detection
+- Persistence detection
+- Security log clearing detection
 - MITRE ATT&CK mapping
 - False positive analysis
 
@@ -154,7 +162,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | `11_mitre_attack` | MITRE ATT&CK tactics, techniques and mapping labs |
 | `12_windows_event_logs` | Windows Security Event Log investigations |
 | `13_microsoft_sentinel` | Microsoft Sentinel, Azure Arc, AMA, DCR and KQL labs |
-| `14_detection_engineering` | Detection logic and analytics rule documentation |
+| `14_detection_engineering` | Detection engineering labs, KQL rules and analyst notes |
 | `evidence` | Screenshots and lab evidence |
 | `archive` | Original README content migrated from older repositories |
 
@@ -169,8 +177,9 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Phase 4: MITRE ATT&CK ✅
 - Phase 5: Microsoft Sentinel Setup ✅
 - Phase 6: KQL Fundamentals ✅
-- Phase 7: Detection Engineering 🔄
-- Phase 8: Incident Investigation & Interview Preparation 🔄
+- Phase 7: Detection Engineering ✅
+- Phase 8: Threat Hunting 🔄
+- Phase 9: Incident Investigation & Interview Preparation 🔄
 
 ---
 
@@ -229,10 +238,19 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 
 ### Phase 7 - Detection Engineering
 - Failed login detection using Windows Security Event ID 4625
-- KQL threshold logic for repeated failed login attempts
-- Five or more failed logins within a five-minute time window
-- MITRE ATT&CK T1110 Brute Force mapping
-- False positive review and SOC analyst investigation notes
+- Successful logon review using Windows Security Event ID 4624
+- Brute-force success correlation using Event IDs 4625 and 4624
+- User account creation detection using Event ID 4720
+- Local group membership change detection using Event ID 4732
+- Privileged logon detection using Event ID 4672
+- Process creation detection using Event ID 4688
+- PowerShell execution review using Event IDs 4103, 4104 and 4688
+- Encoded PowerShell execution simulation and detection logic
+- Service installation detection using Event ID 4697
+- Scheduled task creation detection using Event ID 4698
+- Security log cleared detection using Event ID 1102
+- Service Control Manager service installation review using Event ID 7045
+- MITRE ATT&CK mapping and false positive notes
 
 ---
 
@@ -252,6 +270,16 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Filter suspicious authentication events
 - Map events to MITRE ATT&CK tactics where applicable
 - Convert repeated patterns into analytics rules
+
+### Detection Engineering Workflow
+- Identify event source and Event ID
+- Generate controlled test activity
+- Validate event locally in Event Viewer
+- Validate SIEM ingestion in Microsoft Sentinel
+- Build KQL detection logic
+- Review false positives
+- Map to MITRE ATT&CK
+- Document analyst notes
 
 ### Incident Response
 - Failed login investigation
@@ -281,6 +309,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | Microsoft Security | Microsoft 365 Security, Microsoft Purview, Exchange Admin Center |
 | Identity & Access | MFA, access reviews, failed login investigations, successful logon analysis |
 | Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic, Microsoft Sentinel detections |
+| Detection Engineering | KQL detections, authentication correlation, PowerShell detection, persistence detection, log tampering detection |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
 | Threat Intelligence | URLScan.io, VirusTotal, MXToolbox |
