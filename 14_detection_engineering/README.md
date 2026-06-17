@@ -1,44 +1,122 @@
-# Detection Engineering
+# Detection Engineering Phase
 
-## Overview
+## Status
 
-This folder contains SOC detection notes based on Windows Security Events, Microsoft Sentinel and KQL.
+**Phase Status:** Completed  
+**Platform:** Microsoft Sentinel / Azure Log Analytics  
+**Endpoint:** Windows 11 endpoint onboarded through Azure Arc  
+**Data Source:** Windows Security Events via Azure Monitor Agent and local Windows Event Viewer validation
 
-The goal is to convert log patterns into clear SIEM monitoring logic for analyst review.
+---
 
-## Use Cases
+## Objective
 
-| Use Case | Data Source | Event IDs | Status |
-|---|---|---|---|
-| Failed login review | Windows Security Events | 4625 | Planned |
-| Successful login review | Windows Security Events | 4624 | Planned |
-| Privileged logon review | Windows Security Events | 4672 | Planned |
-| Security log cleared review | Windows Security Events | 1102 | Planned |
-| New user created review | Windows Security Events | 4720 | Planned |
-| Group membership change review | Windows Security Events | 4728, 4732 | Planned |
+This phase documents practical detection engineering labs focused on Windows endpoint telemetry, authentication events, account management, privilege activity, PowerShell execution, persistence, and log tampering.
 
-## Workflow
+The goal of this phase was to move from basic log viewing into detection logic development using KQL and Windows Event IDs.
 
-```text
-Collect logs
-  -> Write KQL query
-  -> Validate results
-  -> Document analyst notes
-  -> Prepare Sentinel analytics rule
-  -> Review alert output
-```
+---
 
-## Skills Demonstrated
+## Skills Practiced
 
-- KQL query writing
-- Windows Event ID analysis
-- Microsoft Sentinel analytics rule preparation
+- Windows Event ID investigation
+- Microsoft Sentinel / Log Analytics querying
+- KQL detection logic
+- Threshold-based detection
+- Correlation-based detection
+- Audit policy validation and configuration
+- Persistence detection
+- Privilege escalation detection
+- PowerShell execution monitoring
 - MITRE ATT&CK mapping
-- SOC documentation
+- False positive review
+- SOC analyst investigation notes
 
-## Next Steps
+---
 
-- Add failed login review notes
-- Add privileged logon review notes
-- Add security log cleared review notes
-- Add Microsoft Sentinel analytics rule notes
+## Completed Labs
+
+| Lab | Detection Area | Event IDs | Status |
+|---|---|---:|---|
+| 1 | Failed login detection | 4625 | Completed |
+| 2 | Successful logon visibility | 4624 | Completed |
+| 3 | Brute-force success correlation | 4625 + 4624 | Completed |
+| 4 | User account creation | 4720 | Completed |
+| 5 | Local group membership change | 4732 | Completed |
+| 6 | Privileged logon detection | 4672 | Completed |
+| 7 | Process creation auditing | 4688 | Completed |
+| 8 | PowerShell operational logging | 4103 / 4104 | Completed |
+| 9 | Encoded PowerShell execution | 4688 / PowerShell | Completed |
+| 10 | Service installation detection | 4697 | Completed |
+| 11 | Scheduled task creation detection | 4698 | Completed |
+| 12 | Security log cleared detection | 1102 | Completed |
+| 13 | Service Control Manager service creation | 7045 | Completed locally |
+
+---
+
+## Detection Coverage
+
+### Authentication
+
+- Failed logons
+- Successful logons
+- Brute-force style activity
+- Successful login after repeated failed attempts
+
+### Account and Privilege Activity
+
+- New user account creation
+- Group membership changes
+- Privileged logons
+
+### Execution
+
+- Process creation
+- PowerShell execution
+- Encoded PowerShell execution
+
+### Persistence
+
+- Service installation
+- Scheduled task creation
+- Service Control Manager events
+
+### Defense Evasion
+
+- Security log clearing
+
+---
+
+## Key KQL Concepts Used
+
+- `where`
+- `project`
+- `sort by`
+- `summarize`
+- `count()`
+- `countif()`
+- `maxif()`
+- `bin()`
+- Event correlation using multiple Event IDs
+
+---
+
+## MITRE ATT&CK Mapping
+
+| Detection | ATT&CK Tactic | Technique |
+|---|---|---|
+| Failed logins | Credential Access | T1110 Brute Force |
+| Successful login after failures | Credential Access / Initial Access | T1110 / T1078 |
+| User account creation | Persistence | T1136 Create Account |
+| Admin group membership change | Persistence / Privilege Escalation | T1098 Account Manipulation |
+| PowerShell execution | Execution | T1059.001 PowerShell |
+| Encoded PowerShell | Execution / Defense Evasion | T1059.001 |
+| Service installation | Persistence / Privilege Escalation | T1543.003 Windows Service |
+| Scheduled task creation | Persistence / Execution | T1053.005 Scheduled Task |
+| Security log cleared | Defense Evasion | T1070.001 Clear Windows Event Logs |
+
+---
+
+## Outcome
+
+This phase confirms hands-on ability to generate security events, verify them in Windows Event Viewer, ingest them into Microsoft Sentinel, and build practical KQL detection logic suitable for SOC analyst interviews and portfolio demonstration.
