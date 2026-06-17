@@ -2,7 +2,7 @@
 
 **SOC Analyst | CompTIA Security+ CE | Microsoft Sentinel | Splunk | Sysmon | KQL | Threat Detection & Incident Response | MSc Data Science — University of Essex**
 
-This repository documents my SOC analyst experience, hands-on security operations labs, SIEM workflows, detection engineering notes, incident response templates, threat hunting exercises, and cybersecurity portfolio projects. The content is built from sanitized, non-confidential examples based on professional experience and personal lab work.
+This repository documents my SOC analyst experience, hands-on security operations labs, SIEM workflows, detection engineering notes, threat hunting exercises, incident investigation workflows, incident response templates, and cybersecurity portfolio projects. The content is built from sanitized, non-confidential examples based on professional experience and personal lab work.
 
 ---
 
@@ -11,17 +11,26 @@ This repository documents my SOC analyst experience, hands-on security operation
 Cybersecurity professional with hands-on SOC experience triaging **25–55 security alerts daily** across a **2,000+ user enterprise environment** spanning India and the United States. Experienced in endpoint security, DLP operations, Microsoft 365 security, incident response, alert documentation, and security operations support.
 
 - **Role Focus:** SOC Analyst / Cybersecurity Operations Analyst
-- **Core Areas:** Alert Triage, Incident Response, DLP, Endpoint Security, Threat Detection, SIEM Monitoring, Security Documentation
+- **Core Areas:** Alert Triage, Incident Investigation, Incident Response, DLP, Endpoint Security, Threat Detection, SIEM Monitoring, Security Documentation
 - **SIEM & Logging:** Microsoft Sentinel, Splunk Enterprise, Log Analytics Workspace, Windows Event Logs, Sysmon
 - **Cloud Security Lab:** Azure Arc, Azure Monitor Agent, Data Collection Rules, Windows Security Events via AMA
 - **Tools:** Zoho Service Desk, SentinelOne, Arctic Wolf, Microsoft Purview, Microsoft 365 Security, Exchange Admin Center, Absolute, BitLocker
 - **Certifications:** CompTIA Security+ CE, AWS Solutions Architect – Associate, Microsoft SOC Program Foundations
 - **Education:** MSc Data Science — University of Essex, United Kingdom
-- **Currently Building:** Incident investigation workflows, SOC case management templates, interview preparation notes, and recruiter-ready SOC portfolio documentation
+- **Currently Building:** SOC case management templates, interview preparation notes, and recruiter-ready SOC portfolio documentation
 
 ---
 
 ## Portfolio Highlights
+
+### Incident Investigation Phase
+- Completed SOC-style incident investigations using Microsoft Sentinel, Azure Log Analytics, Windows Security Events and KQL.
+- Investigated failed login activity using Event ID 4625 and reviewed failed attempt counts by account.
+- Correlated failed and successful logons using Event IDs 4625 and 4624.
+- Investigated PowerShell execution using Event ID 4688 and reviewed parent process context.
+- Investigated persistence activity using Event IDs 4697 and 4698.
+- Investigated Security log clearing using Event ID 1102.
+- Documented severity, classification, evidence, MITRE ATT&CK mapping and closure notes.
 
 ### Threat Hunting Phase
 - Completed proactive threat hunting labs using Microsoft Sentinel, Azure Log Analytics, Windows Security Events and KQL.
@@ -100,6 +109,18 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - KQL Query Writing
 - Log Ingestion Validation
 - Threat Hunting
+- Incident Investigation
+
+### Incident Investigation
+- Failed login investigation
+- Failed-to-successful logon correlation
+- PowerShell execution investigation
+- Parent-child process review
+- Persistence investigation
+- Security log clearing investigation
+- Severity classification
+- SOC closure notes
+- MITRE ATT&CK mapping
 
 ### Threat Hunting
 - Authentication hunting
@@ -182,6 +203,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | `13_microsoft_sentinel` | Microsoft Sentinel, Azure Arc, AMA, DCR and KQL labs |
 | `14_detection_engineering` | Detection engineering labs, KQL rules and analyst notes |
 | `15_threat_hunting` | Threat hunting labs, hunt queries and report documentation |
+| `16_incident_investigation` | SOC incident investigation labs, evidence review and report template |
 | `evidence` | Screenshots and lab evidence |
 | `archive` | Original README content migrated from older repositories |
 
@@ -198,7 +220,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Phase 6: KQL Fundamentals ✅
 - Phase 7: Detection Engineering ✅
 - Phase 8: Threat Hunting ✅
-- Phase 9: Incident Investigation 🔄
+- Phase 9: Incident Investigation ✅
 - Phase 10: SOC Case Management 🔄
 - Phase 11: Interview Preparation 🔄
 
@@ -281,6 +303,14 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Defense evasion hunting using Event ID 1102
 - Threat hunting report with findings, risk assessment, recommendations and MITRE ATT&CK mapping
 
+### Phase 9 - Incident Investigation
+- Failed login incident investigation using Event ID 4625
+- Failed-to-successful logon correlation using Event IDs 4625 and 4624
+- PowerShell execution investigation using Event ID 4688
+- Persistence investigation using Event IDs 4697 and 4698
+- Security log cleared investigation using Event ID 1102
+- Incident report template covering evidence, timeline, impact, severity and closure notes
+
 ---
 
 ## Featured Security Workflows
@@ -319,6 +349,15 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 - Map findings to MITRE ATT&CK
 - Document hunt results and recommendations
 
+### Incident Investigation Workflow
+- Review the alert or event
+- Collect supporting evidence using KQL
+- Build a timeline
+- Correlate authentication, execution, persistence and defense evasion activity
+- Assign severity
+- Determine root cause and classification
+- Document closure notes or escalation path
+
 ### Incident Response
 - Failed login investigation
 - BitLocker recovery handling
@@ -349,6 +388,7 @@ Supported security operations for a **2,000+ user enterprise environment** acros
 | Threat Detection | MITRE ATT&CK, Windows security events, endpoint alerts, detection logic, Microsoft Sentinel detections |
 | Detection Engineering | KQL detections, authentication correlation, PowerShell detection, persistence detection, log tampering detection |
 | Threat Hunting | Authentication hunting, PowerShell hunting, persistence hunting, defense evasion hunting, hunt reporting |
+| Incident Investigation | Alert triage, evidence collection, timeline review, severity classification, closure notes |
 | Vulnerability Support | CVE review, remediation tracking, patch discussion support |
 | Documentation | SOPs, runbooks, incident notes, escalation records |
 | Threat Intelligence | URLScan.io, VirusTotal, MXToolbox |
