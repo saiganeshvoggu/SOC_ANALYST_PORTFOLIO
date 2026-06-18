@@ -4,6 +4,8 @@
 
 This folder documents incident response playbooks, escalation templates and investigation workflows for SOC operations.
 
+---
+
 ## Skills Covered
 
 - Initial triage
@@ -13,6 +15,9 @@ This folder documents incident response playbooks, escalation templates and inve
 - Containment planning
 - Escalation communication
 - Closure documentation
+- Lessons learned notes
+
+---
 
 ## IR Workflow
 
@@ -20,12 +25,25 @@ This folder documents incident response playbooks, escalation templates and inve
 Detect
   -> Triage
   -> Investigate
+  -> Scope
   -> Contain
   -> Escalate
   -> Document
   -> Close
 ```
 
+---
+
+## Covered Scenarios
+
+- Failed login investigation
+- PowerShell execution review
+- Service and scheduled task review
+- Security log clearing review
+- Account and privilege change review
+
+---
+
 ## SOC Analyst Value
 
-Incident response documentation shows the ability to move from alert review to structured investigation and escalation.
+Incident response documentation shows the ability to move from alert review to structured investigation, escalation and closure.
