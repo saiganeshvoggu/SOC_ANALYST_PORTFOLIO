@@ -4,6 +4,8 @@
 
 This folder documents Data Loss Prevention concepts, compliance review workflows and Microsoft Purview-style investigation notes.
 
+---
+
 ## Skills Covered
 
 - DLP alert review
@@ -11,7 +13,11 @@ This folder documents Data Loss Prevention concepts, compliance review workflows
 - User and file activity review
 - Policy match validation
 - Evidence documentation
+- Business justification review
 - Escalation notes
+- Closure documentation
+
+---
 
 ## Analyst Workflow
 
@@ -20,10 +26,13 @@ Review alert
   -> Identify policy match
   -> Validate user and file context
   -> Check data type
-  -> Document business justification
-  -> Escalate if needed
+  -> Review business justification
+  -> Document evidence
+  -> Escalate or close
 ```
+
+---
 
 ## SOC Analyst Value
 
-DLP work helps protect sensitive data and supports compliance-driven security operations.
+DLP work helps protect sensitive data and supports compliance-driven security operations. This folder connects SOC alert handling with data protection responsibilities.
